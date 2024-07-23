@@ -1,16 +1,15 @@
 'use client';
 
-import Image from 'next/image';
-import Link from 'next/link';
 import styled from 'styled-components';
 import ArrowIcon from '@/icons/arrow-left.svg';
 import DeleteIcon from '@/icons/delete.svg';
-import { BLACK, DARK_50 } from '@/variables/colors';
+import { BLACK } from '@/variables/colors';
 import { BasketList } from '@/components/blocks/BasketList/BasketList';
 import { BasketBoard } from '@/components/blocks/BasketBoard/BasketBoard';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { resetState } from '@/redux/features/orderSlice';
 import breakpoints from '@/variables/breakpoints';
+import TextButton from '@/components/ui/TextButton/TextButton';
 
 const Content = styled.section`
   display: flex;
@@ -19,21 +18,6 @@ const Content = styled.section`
   justify-content: flex-start;
   align-items: flex-start;
   width: 100%;
-`;
-
-const StyledButton = styled.button`
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  color: ${DARK_50};
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 500;
-  transition: opacity 0.2s ease-in-out;
-
-  &:hover {
-    opacity: 0.8;
-  }
 `;
 
 const CenteredWrapper = styled.div`
@@ -93,10 +77,9 @@ export const BasketSection = () => {
 
   return (
     <Content>
-      <StyledButton as={Link} href="/">
-        <Image src={ArrowIcon} alt="Иконка стрелки" />
+      <TextButton href="/" src={ArrowIcon} alt="Иконка стрелки">
         Вернуться в каталог
-      </StyledButton>
+      </TextButton>
       {isEmpty ? (
         <CenteredWrapper>
           <Title>Корзина пуста</Title>
@@ -106,10 +89,9 @@ export const BasketSection = () => {
         <OuterWrapper>
           <InnerWrapper>
             <Title>Корзина</Title>
-            <StyledButton onClick={handleClick}>
-              <Image src={DeleteIcon} alt="Иконка очищения корзины" />
+            <TextButton onClick={handleClick} src={DeleteIcon} alt="Иконка очищения корзины">
               Очистить корзину
-            </StyledButton>
+            </TextButton>
             <BasketList />
           </InnerWrapper>
           <BasketBoard />

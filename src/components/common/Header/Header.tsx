@@ -1,7 +1,7 @@
 'use client';
 
 import styled from 'styled-components';
-import { Logo } from '@/components/ui/Logo/Logo';
+import Logo from '@/components/ui/Logo/Logo';
 import { BasketIndicator } from '@/components/blocks/BasketBtn/BasketBtn';
 import breakpoints from '@/variables/breakpoints';
 

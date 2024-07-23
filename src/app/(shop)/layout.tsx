@@ -1,6 +1,7 @@
 'use client';
 
-import { CatalogSection } from '@/components/sections/CatalogSection/CatalogSection';
+import { Header } from '@/components/common/Header/Header';
+import { LayoutType } from '@/interfaces/common';
 import breakpoints from '@/variables/breakpoints';
 import styled from 'styled-components';
 
@@ -18,12 +19,11 @@ const Main = styled.main`
   }
 `;
 
-const Page = () => {
+export default function RootLayout({ children }: LayoutType) {
   return (
-    <Main>
-      <CatalogSection />
-    </Main>
+    <>
+      <Header />
+      <Main>{children}</Main>
+    </>
   );
-};
-
-export default Page;
+}

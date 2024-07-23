@@ -10,6 +10,7 @@ import DeleteIcon from '@/icons/delete.svg';
 import { useAppDispatch } from '@/lib/hooks';
 import { removeOrderProduct } from '@/redux/features/orderSlice';
 import breakpoints from '@/variables/breakpoints';
+import TextButton from '@/components/ui/TextButton/TextButton';
 
 const StyledImage = styled(Image)`
   width: 205px;
@@ -74,25 +75,8 @@ const InnerWrapper = styled.div`
   gap: 20px;
 `;
 
-const StyledButton = styled.button`
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  color: ${DARK_50};
-  font-size: 16px;
-  line-height: 1.4;
-  font-weight: 500;
-  transition: opacity 0.2s ease-in-out;
-  margin-top: auto;
-
-  &:hover {
-    opacity: 0.8;
-  }
-`;
-
-const StyledIcon = styled(Image)`
-  width: 24px;
-  height: 24px;
+const OptionsWrapper = styled(InnerWrapper)`
+  margin-bottom: auto;
 `;
 
 interface BasketCardProps {
@@ -115,12 +99,13 @@ export const BasketCard = ({ component: Component = 'div', product }: BasketCard
         <StyledImage sizes="100vw" src={imageUrl} width={1} height={1} quality={100} priority={false} alt={name} />
         <InnerWrapper>
           <CardTitle>{name}</CardTitle>
-          <OptionValue>Цвет: {color.name}</OptionValue>
-          <OptionValue>Размер: {size.toUpperCase()}</OptionValue>
-          <StyledButton onClick={handleDeleteClick}>
-            <StyledIcon src={DeleteIcon} alt="Иконка удаления товара" />
+          <OptionsWrapper>
+            <OptionValue>Цвет: {color.name}</OptionValue>
+            <OptionValue>Размер: {size.toUpperCase()}</OptionValue>
+          </OptionsWrapper>
+          <TextButton onClick={handleDeleteClick} src={DeleteIcon} alt="Иконка удаления товара">
             Удалить
-          </StyledButton>
+          </TextButton>
         </InnerWrapper>
       </OuterWrapper>
       <OrderBtn count={selectedCard.count} min={1} selectedCard={selectedCard} setSelectedCard={setSelectedCard} />
