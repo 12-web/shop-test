@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { DARK, DARK_15, DARK_50 } from '@/variables/colors';
@@ -84,7 +84,7 @@ interface BasketCardProps {
   product: OrderedProduct;
 }
 
-export const BasketCard = ({ component: Component = 'div', product }: BasketCardProps) => {
+export const BasketCard: FC<BasketCardProps> = ({ component: Component = 'div', product }) => {
   const { name, price, imageUrl, color, size, count } = product;
 
   const [selectedCard, setSelectedCard] = useState<OrderedProduct>(product);

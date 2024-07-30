@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { DARK, DARK_15 } from '@/variables/colors';
@@ -58,7 +58,7 @@ interface ProductCardProps {
   product: Product;
 }
 
-export const ProductCard = ({ component: Component = 'div', product }: ProductCardProps) => {
+export const ProductCard: FC<ProductCardProps> = ({ component: Component = 'div', product }) => {
   const { id, name, price, imageUrl, colors, sizes } = product;
 
   const { products } = useAppSelector((state) => state.order);

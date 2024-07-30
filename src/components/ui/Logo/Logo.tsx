@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import IconLogo from '@/icons/logo.svg';
 import styled from 'styled-components';
-import { memo } from 'react';
+import { FC, memo } from 'react';
 
 const StyledLink = styled(Link)`
   width: 182px;
@@ -19,7 +19,7 @@ const StyledImage = styled(Image)`
   height: 100%;
 `;
 
-const Logo = () => {
+const Logo: FC = () => {
   return (
     <StyledLink href="/">
       <StyledImage src={IconLogo} alt="Логотип T-Shirts" />

@@ -10,6 +10,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { resetState } from '@/redux/features/orderSlice';
 import breakpoints from '@/variables/breakpoints';
 import TextButton from '@/components/ui/TextButton/TextButton';
+import { FC } from 'react';
 
 const Content = styled.section`
   display: flex;
@@ -66,7 +67,7 @@ const Text = styled.p`
   margin-top: 40px;
 `;
 
-export const BasketSection = () => {
+export const BasketSection: FC = () => {
   const dispatch = useAppDispatch();
 
   const handleClick = () => dispatch(resetState());

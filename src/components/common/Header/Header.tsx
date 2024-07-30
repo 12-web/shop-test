@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Logo from '@/components/ui/Logo/Logo';
 import { BasketIndicator } from '@/components/blocks/BasketBtn/BasketBtn';
 import breakpoints from '@/variables/breakpoints';
+import { FC } from 'react';
 
 const StyledHeader = styled.header`
   padding: 60px 160px;
@@ -16,7 +17,7 @@ const StyledHeader = styled.header`
   }
 `;
 
-export const Header = () => {
+export const Header: FC = () => {
   return (
     <StyledHeader>
       <Logo />

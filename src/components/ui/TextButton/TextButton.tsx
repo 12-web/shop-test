@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styled from 'styled-components';
 import { DARK_50 } from '@/variables/colors';
-import { memo } from 'react';
+import { FC, memo } from 'react';
 
 export const StyledTextButton = styled.button`
   display: flex;
@@ -29,7 +29,7 @@ interface TextButtonProps {
   onClick?: VoidFunction;
 }
 
-const TextButton = ({ src, alt, href, children, onClick }: TextButtonProps) => {
+const TextButton: FC<TextButtonProps> = ({ src, alt, href, children, onClick }) => {
   const content = (
     <>
       <Image src={src} alt={alt} />

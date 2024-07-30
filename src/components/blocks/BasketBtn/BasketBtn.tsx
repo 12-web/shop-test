@@ -6,6 +6,7 @@ import Link from 'next/link';
 import BasketIcon from '@/icons/basket.svg';
 import styled from 'styled-components';
 import { useAppSelector } from '@/lib/hooks';
+import { FC } from 'react';
 
 const StyledLink = styled(Link)`
   padding: 12px 24px;
@@ -50,7 +51,7 @@ const Item = styled.li`
   }
 `;
 
-export const BasketIndicator = () => {
+export const BasketIndicator: FC = () => {
   const { price, count } = useAppSelector((state) => state.order);
 
   return (

@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { filterChanged, getProductsList } from '@/redux/features/productsSlice';
 import breakpoints from '@/variables/breakpoints';
+import { FC } from 'react';
 
 const List = styled.ul`
   display: flex;
@@ -56,7 +57,7 @@ interface Filter {
   isChecked?: boolean;
 }
 
-export const Filter = () => {
+export const Filter: FC = () => {
   const dispatch = useAppDispatch();
   const productsState = useAppSelector((state) => state.products);
 

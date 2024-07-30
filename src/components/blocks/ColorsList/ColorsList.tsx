@@ -3,7 +3,7 @@
 import styled from 'styled-components';
 import { Color, OrderedProduct, Product } from '@/interfaces/common';
 import { BLACK_20, DARK_15 } from '@/variables/colors';
-import { SetStateAction, Dispatch } from 'react';
+import { SetStateAction, Dispatch, FC } from 'react';
 
 const List = styled.ul`
   display: flex;
@@ -46,7 +46,7 @@ interface ColorsListProps {
   selectedCard: OrderedProduct;
 }
 
-export const ColorsList = ({ colors, id, setSelectedCard, selectedCard }: ColorsListProps) => {
+export const ColorsList: FC<ColorsListProps> = ({ colors, id, setSelectedCard, selectedCard }) => {
   const handleChange = (color: Color) => {
     setSelectedCard((card) => ({ ...card, color: color }));
   };

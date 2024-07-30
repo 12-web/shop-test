@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/hooks';
 import { getProductsList } from '@/redux/features/productsSlice';
 import breakpoints from '@/variables/breakpoints';
 import { DARK_15 } from '@/variables/colors';
-import { useEffect } from 'react';
+import { FC, useEffect } from 'react';
 import styled from 'styled-components';
 
 const Content = styled.section`
@@ -38,7 +38,7 @@ const List = styled.ul`
   }
 `;
 
-export const CatalogSection = () => {
+export const CatalogSection: FC = () => {
   const dispatch = useAppDispatch();
   const products = useAppSelector((state) => state.products);
 

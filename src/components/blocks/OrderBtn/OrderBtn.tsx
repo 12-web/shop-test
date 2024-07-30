@@ -2,7 +2,7 @@
 
 import styled from 'styled-components';
 import { BLACK_20, DARK, DARK_70, WHITE } from '@/variables/colors';
-import { Dispatch, SetStateAction } from 'react';
+import { Dispatch, FC, SetStateAction } from 'react';
 import MinusIcon from '@/icons/minus.svg';
 import PlusIcon from '@/icons/plus.svg';
 import Image from 'next/image';
@@ -66,7 +66,7 @@ interface OrderBtnProps {
   count: number;
 }
 
-export const OrderBtn = ({ count, setSelectedCard, selectedCard, min = 0 }: OrderBtnProps) => {
+export const OrderBtn: FC<OrderBtnProps> = ({ count, setSelectedCard, selectedCard, min = 0 }) => {
   const dispatch = useAppDispatch();
 
   const increment = () => {

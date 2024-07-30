@@ -3,6 +3,7 @@
 import { getDeclineNoun } from '@/helpers/getDeclineNoun';
 import { useAppSelector } from '@/lib/hooks';
 import { BLACK, DARK, DARK_15, SHADOW, WHITE } from '@/variables/colors';
+import { FC } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
@@ -56,7 +57,7 @@ const Button = styled.button`
   width: 100%;
 `;
 
-export const BasketBoard = () => {
+export const BasketBoard: FC = () => {
   const { price, count } = useAppSelector((state) => state.order);
 
   const productsCount = getDeclineNoun(count, ['товар', 'товара', 'товаров']);
